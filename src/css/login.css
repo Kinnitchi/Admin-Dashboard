@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800');
+@import url('https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic');
+
+* {
+   padding: 0;
+   margin: 0;
+   border: 0;
+   box-sizing: border-box;
+   font-family: 'Roboto', sans-serif;
+}
+
+body {
+   background-color: #f1f1f1;
+}
+
+input {
+   height: 2rem;
+}
+
+#login {
+   width: 100%;
+   height: 100%;
+   margin: 20px;
+   padding: 20px;
+   font-size: 14px;
+   border-radius: 8px;
+   -webkit-box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.25);
+   box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.25);
+}
+
+#buttonDiv {
+   padding: 20px 0 0 0;
+}
+
+/* TESTE DO USER PICK */
+#cadastroUser {
+   box-sizing: border-box;
+   position: absolute;
+   left: 100px;
+   top: 0;
+   margin: 60px;
+}
+
+#form {
+   display: flex
+}
+
+form {
+   margin: 0 auto;
+}
+
+.tittle {
+   font-size: 30px;
+   font-weight: 700;
+   font-style: bold;
+   padding: 10px 0;
+}
