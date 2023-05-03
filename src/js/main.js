@@ -1,33 +1,43 @@
-const sideMenu = document.querySelector('aside');
-const menuBtn = document.querySelector('#menu-btn');
-const closeBtn = document.querySelector('#close-btn');
-const theme = document.querySelector('.theme-toggler');
+// Cache DOM elements
+const sideMenu = document.querySelector("aside");
+const menuBtn = document.querySelector("#menu-btn");
+const closeBtn = document.querySelector("#close-btn");
+const theme = document.querySelector(".theme-toggler");
+const tableBody = document.querySelector("table tbody");
 
-menuBtn.addEventListener('click', () => {
-   debugger
-   sideMenu.style.display = 'block';
+// Event listeners
+menuBtn.addEventListener("click", () => {
+  sideMenu.style.display = "block";
 });
 
-closeBtn.addEventListener('click', () => {
-   sideMenu.style.display = 'none';
+closeBtn.addEventListener("click", () => {
+  sideMenu.style.display = "none";
 });
 
-theme.addEventListener('click', () => {
-   document.body.classList.toggle('dark-theme');
-   theme.querySelector('span:nth-child(1)').classList.toggle('active');
-   theme.querySelector('span:nth-child(2)').classList.toggle('active');
+
+
+theme.addEventListener("click", () => {
+  document.body.classList.toggle("dark-theme");
+  theme.querySelectorAll("span").forEach((span) => {
+    span.classList.toggle("active");
+  });
 });
 
-Orders.forEach(order => {
-   const tr = document.createElement('tr');
-   const trContent = `
-         <td>${order.productName}</td>
-         <td>${order.productPrice}</td>
-         <td>${order.quantity}</td>
-         <td>${order.orderDate}</td>
-         <td class="${order.orderStatus === 'Declined' ? 'danger' : order.orderStatus === 'Pending' ? 'warning': 'primary'}">${order.orderStatus}</td>
-         <td class="primary">Details</td>`
+// Render orders
+Orders.forEach((order) => {
+  const trEl = document.createElement("tr");
+  const tdStatusClassName = `class="${
+    order.orderStatus === "Declined"? "danger" : 
+    order.orderStatus === "Pending" ? "warning" : "primary"
+  }"`;
+  const trContent = `
+      <td>${order.productName}</td>
+      <td>${order.productPrice}</td>
+      <td>${order.quantity}</td>
+      <td>${order.orderDate}</td>
+      <td ${tdStatusClassName}>${order.orderStatus}</td>
+      <td class="primary">Details</td>`;
 
-   tr.innerHTML = trContent;
-   document.querySelector('table tbody').appendChild(tr);
+  trEl.innerHTML = trContent;
+  tableBody.appendChild(trEl);
 });
